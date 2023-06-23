@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: landetekotlin
+netty:
+  default:
+    allocator:
+      max-order: 3
