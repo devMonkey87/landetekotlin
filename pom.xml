@@ -15,8 +15,8 @@
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>17</jdk.version>
-    <release.version>17</release.version>
+    <jdk.version>16</jdk.version>
+    <release.version>16</release.version>
     <micronaut.version>3.9.3</micronaut.version>
     <micronaut.runtime>netty</micronaut.runtime>
     <kotlinVersion>1.6.21</kotlinVersion>
@@ -35,6 +35,18 @@
       <groupId>io.micronaut</groupId>
       <artifactId>micronaut-http-client</artifactId>
       <scope>compile</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp -->
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>2.7.5</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
     </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
