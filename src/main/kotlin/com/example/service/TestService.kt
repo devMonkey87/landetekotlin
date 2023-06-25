@@ -1,22 +1,16 @@
 package com.example.service
 
-import com.example.controller.ApiResponse
-import com.example.controller.UserData
-import com.google.gson.Gson
 import com.squareup.okhttp.*
+import io.micronaut.cache.annotation.CacheConfig
+import io.micronaut.cache.annotation.Cacheable
 import jakarta.inject.Singleton
 
 @Singleton
-class TestService {
+@CacheConfig("micache")
+public open class TestService {
 
 
-    fun execute(): String {
-
-        println("funcionooooooooooo")
-        return "hello frm service"
-    }
-
-    fun metodoCacheable(): Any? {
+/*    fun metodoCacheable(): Any? {
         val client = OkHttpClient()
 
         val request = Request.Builder()
@@ -42,8 +36,16 @@ class TestService {
                 return apiResponse
             }
         }
-        return null
+        return ApiResponse(true, listOf(UserData("d","sds" , "s")))
+    }*/
+
+
+    @Cacheable()
+    public open fun metodoQueCachea(valor: Int): String {
+        println("se ejdcuta el cacheableeee" + valor)
+        return "pues si"
     }
+
 
 
 }

@@ -1,11 +1,23 @@
 micronaut:
   application:
     name: landetekotlin
-  server:
-    port: 8081
+  security:
+    enabled: false
+  cache:
+    caffeine:
+      default:
+        maximum-size: 500
+        expire-after-write: 1h
+    caches:
+      micache:
+        maximum-size: 200
+        expire-after-write: 30m
 
 netty:
   default:
     allocator:
       max-order: 3
 
+endpoints:
+  caches:
+    enabled: true
