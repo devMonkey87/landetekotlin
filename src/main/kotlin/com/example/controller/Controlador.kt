@@ -3,52 +3,34 @@ package com.example.controller
 import com.example.service.TestService
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
-import kotlin.system.measureTimeMillis
 
 @Controller("/")
- class Controlador(private val testService: TestService) {
+class Controlador(private val testService: TestService) {
 
 
     @Get("run")
     fun index(): String {
-
         val valor = 2
         val valor2 = 3
 
+        var resultadito = testService.metodoQueCachea(valor)
+        println("OK QUE PASO ??" + resultadito)
 
-        val tiempoTotal = measureTimeMillis {
+        var resultadito2 = testService.metodoQueCachea(valor2)
+        println("OK QUE PASO 2 ??" + resultadito2)
 
-            testService.metodoQueCachea(valor)
-            var cacheableAVees = testService.metodoQueCachea(valor2)
+        var resultadito3 = testService.metodoQueCachea(valor)
+        println("OK QUE PASO  3??" + resultadito3)
 
-        }
-        println(tiempoTotal)
+        var resultadito4 = testService.metodoQueCachea(valor2)
+        println("OK QUE PASO  4??" + resultadito4)
 
-
-        val tiempoTotal2 = measureTimeMillis {
-            // Código que deseas medir el tiempo de ejecución
-            // ...
-
-            testService.metodoQueCachea(valor)
-            testService.metodoQueCachea(valor)
-
-        }
-        println(tiempoTotal2)
-
-
-
-
-
-/*
-        val metodoCacheable = testService.metodoCacheable()
-*/
         return "¡Hola desde TestController!"
     }
 }
 
 data class ApiResponse(
-    val success: Boolean,
-    val data: List<UserData>
+    val success: Boolean, val data: List<UserData>
 )
 
 data class UserData(

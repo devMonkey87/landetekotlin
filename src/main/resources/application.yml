@@ -10,7 +10,7 @@ micronaut:
         expire-after-write: 1h
     caches:
       micache:
-        maximum-size: 200
+        maximum-size: 2000
         expire-after-write: 30m
 
 netty:
